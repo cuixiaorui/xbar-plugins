@@ -42,6 +42,9 @@ async function requestLiveRoomChats() {
     let last = getLastMessage(room);
     if (last.timeline == localData.lasttimeline) return false;
 
+    // 如果是自己发的话，那么不需要更新
+    if (last.uid === spaceId) return false;
+
     return true;
   }
 
