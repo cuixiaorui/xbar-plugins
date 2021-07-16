@@ -23,14 +23,11 @@ requestFollowerCount();
 // 2. 获取直播间的弹幕
 requestLiveRoomChats();
 
-let count = 1;
-
 async function requestFollowerCount() {
   const res = await fetch(
     "https://api.bilibili.com/x/relation/stat?vmid=" + spaceId
   );
   const data = await res.json();
-  count++;
   console.log("粉丝数:" + data.data.follower);
 }
 
