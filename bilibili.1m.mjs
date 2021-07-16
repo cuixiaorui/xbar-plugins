@@ -1,5 +1,4 @@
 #!/usr/bin/env zx
-// TODO 判断如果最后一个是自己回复的，那么就不需要在通知了，因为肯定是知道有新消息过来了
 $.verbose = false;
 
 //B站用户ID
@@ -43,7 +42,7 @@ async function requestLiveRoomChats() {
     if (last.timeline == localData.lasttimeline) return false;
 
     // 如果是自己发的话，那么不需要更新
-    if (last.uid === spaceId) return false;
+    if (last.uid == spaceId) return false;
 
     return true;
   }
